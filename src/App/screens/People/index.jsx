@@ -64,6 +64,9 @@ class People extends React.PureComponent {
       this.setState({searchData:0});
       this.setState({peopleData: {}});
       this.setState({planetData: {}});
+    } else {
+      let url = newProps.location.pathname;
+      this.setState({searchData: url.substr(8)}, this.loadPeopleDataSWAPI );
     }
   }
 
