@@ -18,7 +18,13 @@ import { withRouter } from 'react-router-dom';
 
 import StarWars from './assets/StarWars.jpg';
 import Alderaan from './assets/Alderaan.jpg';
+import Alderaan1 from './assets/Alderaan1.jpg';
+import Alderaan2 from './assets/Alderaan2.jpg';
+import Alderaan3 from './assets/Alderaan3.jpg';
 import Dagobah from './assets/Dagobah.jpg';
+import Dagobah1 from './assets/Dagobah1.jpg';
+import Dagobah2 from './assets/Dagobah2.jpg';
+import Dagobah3 from './assets/Dagobah3.jpg';
 import Hoth from './assets/Hoth.jpg';
 import YavinIV from './assets/YavinIV.jpg';
 import Tatooine from './assets/Tatooine.jpg';
@@ -107,6 +113,42 @@ class Planets extends React.PureComponent {
     }
     return StarWars ;
   }
+
+  getImageCarousel1( arg ){
+    let zn = arg.replace(/\s|-/g, '');
+    switch (zn){
+      case 'Alderaan': return Alderaan1;
+      case 'Dagobah': return Dagobah1;
+      case 'Hoth': return Hoth1;
+      case 'YavinIV': return YavinIV1;
+      case 'Tatooine': return Tatooine1;
+    }
+    return StarWars ;
+  }
+
+  getImageCarousel2( arg ){
+    let zn = arg.replace(/\s|-/g, '');
+    switch (zn){
+      case 'Alderaan': return Alderaan2;
+      case 'Dagobah': return Dagobah2;
+      case 'Hoth': return Hoth2;
+      case 'YavinIV': return YavinIV2;
+      case 'Tatooine': return Tatooine2;
+    }
+    return StarWars ;
+  }
+
+  getImageCarousel3( arg ){
+    let zn = arg.replace(/\s|-/g, '');
+    switch (zn){
+      case 'Alderaan': return Alderaan3;
+      case 'Dagobah': return Dagobah3;
+      case 'Hoth': return Hoth3;
+      case 'YavinIV': return YavinIV3;
+      case 'Tatooine': return Tatooine3;
+    }
+    return StarWars ;
+  }
 // ???
   getUrl( arg ){
     return arg.replace('https://swapi.co/api','').substr(9, arg.length-30);
@@ -176,6 +218,11 @@ class Planets extends React.PureComponent {
           </Section>
         </Box>
       </Columns>
+      <Carousel>
+        <Image src={this.getImageCarousel1(this.state.planetData.name)} />
+        <Image src={this.getImageCarousel2(this.state.planetData.name)} />
+        <Image src={this.getImageCarousel3(this.state.planetData.name)} />
+      </Carousel>
     </Section> : this.state.resourceData.count ? <Section>
       <Value value={this.getValueAll()} align='end' size='small' />
       <br />
