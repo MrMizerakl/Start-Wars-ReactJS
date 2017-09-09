@@ -26,8 +26,17 @@ import Dagobah1 from './assets/Dagobah1.jpg';
 import Dagobah2 from './assets/Dagobah2.jpg';
 import Dagobah3 from './assets/Dagobah3.jpg';
 import Hoth from './assets/Hoth.jpg';
+import Hoth1 from './assets/Hoth1.jpg';
+import Hoth2 from './assets/Hoth2.jpg';
+import Hoth3 from './assets/Hoth3.jpg';
 import YavinIV from './assets/YavinIV.jpg';
+import YavinIV1 from './assets/YavinIV1.jpg';
+import YavinIV2 from './assets/YavinIV2.jpg';
+import YavinIV3 from './assets/YavinIV3.jpg';
 import Tatooine from './assets/Tatooine.jpg';
+import Tatooine1 from './assets/Tatooine1.jpg';
+import Tatooine2 from './assets/Tatooine2.jpg';
+import Tatooine3 from './assets/Tatooine3.jpg';
 
 class Planets extends React.PureComponent {
   constructor(...arg){
@@ -218,11 +227,13 @@ class Planets extends React.PureComponent {
           </Section>
         </Box>
       </Columns>
-      <Carousel>
-        <Image src={this.getImageCarousel1(this.state.planetData.name)} />
-        <Image src={this.getImageCarousel2(this.state.planetData.name)} />
-        <Image src={this.getImageCarousel3(this.state.planetData.name)} />
-      </Carousel>
+      <Box pad='small'>
+        <Carousel>
+          <Image src={this.getImageCarousel1(this.state.planetData.name)} />
+          <Image src={this.getImageCarousel2(this.state.planetData.name)} />
+          <Image src={this.getImageCarousel3(this.state.planetData.name)} />
+        </Carousel>
+      </Box>
     </Section> : this.state.resourceData.count ? <Section>
       <Value value={this.getValueAll()} align='end' size='small' />
       <br />
