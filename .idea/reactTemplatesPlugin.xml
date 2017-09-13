@@ -2,7 +2,6 @@
 <project version="4">
   <component name="RTProjectComponent">
     <option name="nodeInterpreter" value="C:\xampp\nodejs\node.exe" />
-    <option name="pluginEnabled" value="true" />
     <option name="modules" value="es6" />
     <option name="reactNative" value="true" />
   </component>

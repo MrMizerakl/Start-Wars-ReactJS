@@ -20,7 +20,6 @@ class SearchHeader extends Component {
 
   this.setSearchType = this.setSearchType.bind(this);
   this.setHistory = this.setHistory.bind(this);
-
   }
 
   componentWillMount(){

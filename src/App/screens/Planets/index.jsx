@@ -179,7 +179,8 @@ class Planets extends React.PureComponent {
   render(){
     return this.state.searchData > 0 && this.state.planetData.name ? <Section>
       <Headline strong={true}
-                size='medium'>
+                size='medium'
+                align='center'>
         {this.state.planetData.name}
       </Headline>
       <Columns  size='large' justify='center' >
@@ -227,13 +228,15 @@ class Planets extends React.PureComponent {
           </Section>
         </Box>
       </Columns>
-      <Box pad='small'>
-        <Carousel>
-          <Image src={this.getImageCarousel1(this.state.planetData.name)} />
-          <Image src={this.getImageCarousel2(this.state.planetData.name)} />
-          <Image src={this.getImageCarousel3(this.state.planetData.name)} />
-        </Carousel>
-      </Box>
+      <Columns  size='large' justify='center' >
+        <Box pad='small' size='xxlarge' alignContent='center'>
+          <Carousel>
+            <Image src={this.getImageCarousel1(this.state.planetData.name)} />
+            <Image src={this.getImageCarousel2(this.state.planetData.name)} />
+            <Image src={this.getImageCarousel3(this.state.planetData.name)} />
+          </Carousel>
+        </Box>
+      </Columns>
     </Section> : this.state.resourceData.count ? <Section>
       <Value value={this.getValueAll()} align='end' size='small' />
       <br />

@@ -15,6 +15,7 @@ import Columns from 'grommet/components/Columns';
 
 import { withRouter } from 'react-router-dom';
 
+// import * as images from './assets';
 import StarWars from './assets/StarWars.jpg';
 import AnakinSkywalker from './assets/AnakinSkywalker.jpg';
 import BeruWhitesunlars from './assets/BeruWhitesunlars.jpg';
@@ -30,6 +31,8 @@ import OwenLars from './assets/OwenLars.jpg';
 import R2D2 from './assets/R2D2.jpg';
 import R5D4 from './assets/R5D4.jpg';
 import WilhuffTarkin from './assets/WilhuffTarkin.jpg';
+
+// console.log('images', images);
 
 class People extends React.PureComponent {
   constructor(...arg){
@@ -148,7 +151,8 @@ class People extends React.PureComponent {
   render(){
     return this.state.searchData > 0 && this.state.peopleData.name && this.state.planetData.name ? <Section>
       <Headline strong={true}
-                size='medium'>
+                size='medium'
+                align='center'>
         {this.state.peopleData.name}
       </Headline>
       <Columns  size='large' justify='center' >
