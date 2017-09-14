@@ -17,7 +17,6 @@ class PageFooter extends Component {
     };
 
     this.createMenuFooter = this.createMenuFooter.bind(this);
-    // this.setPath = this.setPath.bind(this);
   }
 
   componentWillMount(){
@@ -27,18 +26,15 @@ class PageFooter extends Component {
       .then( json => this.setState({ resourceTypes: Object.keys(json) }) )
   }
 
-  createMenuFooter(arr){
-    return arr.map( item => <Anchor
+  createMenuFooter(){
+    console.log(this.props);
+    return this.state.resourceTypes.map( item => <Anchor
         key={item}
         path={ `/${item}` }>
         {item[0].toUpperCase()}{item.substring(1)}
       </Anchor>
     );
   }
-
-  // setPath( item ){
-  //   return `/${item}`;
-  // }
 
   render () {
     return (
@@ -60,7 +56,7 @@ class PageFooter extends Component {
               path='/'>
               Home
             </Anchor>
-            { this.createMenuFooter(this.state.resourceTypes) }
+            { this.createMenuFooter() }
           </Menu>
         </Box>
       </Footer>
