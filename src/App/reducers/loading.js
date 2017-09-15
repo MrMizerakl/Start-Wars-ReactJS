@@ -1,13 +1,13 @@
 import {SHOW_LOADER, HIDE_LOADER} from './../constants';
 
-const repositories = (state = false, action) => {
+const loading = (state = [], action) => {
 
   if ( action.type === SHOW_LOADER){
-    return true;
+    return [...state, [{loading: true}]];
   } else if( action.type === HIDE_LOADER){
-    return false;
+    return [...state, [{loading: false}]];
   }
   return state;
 };
 
-export default repositories;
+export default loading;

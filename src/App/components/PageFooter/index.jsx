@@ -49,9 +49,10 @@ class PageFooter extends Component {
   }
 
   createMenuFooter(){
+    // this.createOnClick({item})
     return this.state.resourceTypes.map( item => <Anchor
         key={item}
-        onClick={ this.createOnClick(item) }
+        onClick={ this.props.actions.people }
         path={ `/${item}` }>
         {item[0].toUpperCase()}{item.substring(1)}
       </Anchor>
@@ -69,10 +70,13 @@ class PageFooter extends Component {
             mrMizerakl © 2016
           </Paragraph>
           <Menu direction='row' size='small' dropAlign={{"right": "right"}}>
-            <Anchor key='footerhome' path='/'>
-              Home
-            </Anchor>
-            { this.createMenuFooter() }
+            <Anchor key='footerhome' path='/'>Home</Anchor>
+            <Anchor key='people' path='/people' onClick={this.props.actions.people}>People</Anchor>
+            <Anchor key='planets' path='/planets' onClick={this.props.actions.planets}>Planets</Anchor>
+            <Anchor key='films' path='/films' onClick={this.props.actions.films}>Films</Anchor>
+            <Anchor key='species' path='/species' onClick={this.props.actions.species}>Species</Anchor>
+            <Anchor key='vehicles' path='/vehicles' onClick={this.props.actions.vehicles}>Vehicles</Anchor>
+            <Anchor key='starships' path='/starships' onClick={this.props.actions.starships}>Starships</Anchor>
           </Menu>
         </Box>
       </Footer>
@@ -80,9 +84,9 @@ class PageFooter extends Component {
   }
 }
 
-const mapStateToProps = ({people, category}) => {
+const mapStateToProps = ({type, category, repositories, loading}) => {
   return {
-    people, category
+    type, category, repositories, loading
   }
 };
 

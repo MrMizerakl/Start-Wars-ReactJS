@@ -1,30 +1,34 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+// import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { showLoader, hideLoader } from "./../../actions/loader";
 
 import styles from './loader.scss';
 
-const propTypes = {
-  active: PropTypes.bool
-};
+class Loader extends Component {
+  // constructor(...args){
+  //   super(...args);
+  //
+  //   this.propTypes = {
+  //     active: PropTypes.bool
+  //   };
+  //
+  //   this.defaultProps = {
+  //     active: false
+  //   };
+  //
+  // }
 
-const defaultProps = {
-  active: false
-};
-
-const Loader = () => {
-  console.log('Loader', this.props);
-  return (
-    <div className={ defaultProps.active ? styles['loader-wrapper'] : 'hidden' }>
-      <div className={ styles.loader } />
-    </div>
-  );
-};
-
-Loader.propTypes = propTypes;
-Loader.defaultProps = defaultProps;
+  render () {
+    console.log('Loader', this.props);
+    return (
+      <div className={ this.props.loading ? styles['loader-wrapper'] : 'hidden' }>
+        <div className={ styles.loader } />
+      </div>
+    )
+  };
+}
 
 const mapStateToProps = ({ loading }) => {
   return {

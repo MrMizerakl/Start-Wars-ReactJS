@@ -1,4 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { showLoader, hideLoader } from "./../../../actions/loader";
+import { people } from './../../../actions/people';
+
 import Value from 'grommet/components/Value';
 import Section from 'grommet/components/Section';
 import Tiles from 'grommet/components/Tiles';
@@ -13,7 +18,7 @@ import List from 'grommet/components/List';
 import ListItem from 'grommet/components/ListItem';
 import Columns from 'grommet/components/Columns';
 
-import { withRouter } from 'react-router-dom';
+// import { withRouter } from 'react-router-dom';
 
 import { StarWars, AnakinSkywalker, BeruWhitesunlars, BiggsDarklighter,
   C3PO, Chewbacca, DarthVader, HanSolo, LeiaOrgana, LukeSkywalker, ObiWanKenobi,
@@ -134,6 +139,7 @@ class People extends React.PureComponent {
   }
 
   render(){
+    console.log('people-component',this.props);
     return this.state.searchData > 0 && this.state.peopleData.name && this.state.planetData.name ? <Section>
       <Headline strong={true}
                 size='medium'
@@ -192,7 +198,7 @@ class People extends React.PureComponent {
       </Section> : this.state.resourceData.count ? <Section>
       <Value value={this.getValueAll()} align='end' size='small' />
       <br />
-      <Tiles fill={true} onMore={ this.loadDataSWAPI } >
+      <Tiles fill={true} onMore={this.state.resourceData.count!==this.state.countLoad ? this.loadDataSWAPI : null  } >
         {this.state.resourceData.results.map(
           item => <Tile key={item.name}>
             <Card thumbnail={ this.getImage(item.name) }
@@ -217,4 +223,17 @@ class People extends React.PureComponent {
   };
 }
 
-export default withRouter(People);
+const mapStateToProps = ({type, category, repositories, loading}) => {
+  return {
+    type, category, repositories, loading
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators({ showLoader, hideLoader, people }, dispatch),
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(People);
+// export default withRouter(People);

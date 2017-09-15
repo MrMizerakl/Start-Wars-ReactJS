@@ -8,16 +8,20 @@ export const people = () => {
     return fetch(url)
       .then( res => res.json())
       .then( json => {
-        const resourceData = json;
-        const countData = json.results.length;
+
+
+        const resourceData = json.results,
+              countAll = json.count,
+              urlNext = json.next,
+              urlPrevious = json.previous;
+        // const countData = json.results.length;
+        console.log('people-action-4', json.results);
         dispatch(hideLoader);
         return dispatch({
           type: LOADEDPAGE,
-          category: PEOPLE,
-          repositories: {
-            resourceData,
-            countData
-          }
+          category: [{category:PEOPLE}],
+          repositories: [{resourceData}],
+          parameters: [{parameters:{count: countAll, next: urlNext, previous: urlPrevious}}]
         });
       });
 

@@ -90,7 +90,7 @@ class Starships extends React.PureComponent {
     return this.state.resourceData.count ? <Section>
       <Value value={this.getValueAll()} align='end' size='small' />
       <br />
-      <Tiles fill={true} onMore={ this.loadDataSWAPI } >
+      <Tiles fill={true} onMore={this.state.resourceData.count!==this.state.countLoad ? this.loadDataSWAPI : null  } >
         {this.state.resourceData.results.map(
             item => <Tile key={item.name}>
               <Card thumbnail={ this.getImage(item.name) }
