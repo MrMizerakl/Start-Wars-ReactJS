@@ -1,4 +1,13 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { showLoader, hideLoader } from "./../../actions/loader";
+import { people } from './../../actions/people';
+import { films } from './../../actions/films';
+import { planets } from './../../actions/planets';
+import { species } from './../../actions/species';
+import { vehicles } from './../../actions/vehicles';
+import { starships } from './../../actions/starships';
 
 import Footer from 'grommet/components/Footer';
 import Title from 'grommet/components/Title';
@@ -17,6 +26,7 @@ class PageFooter extends Component {
     };
 
     this.createMenuFooter = this.createMenuFooter.bind(this);
+    this.createOnClick = this.createOnClick.bind(this);
   }
 
   componentWillMount(){
@@ -26,10 +36,22 @@ class PageFooter extends Component {
       .then( json => this.setState({ resourceTypes: Object.keys(json) }) )
   }
 
+  createOnClick( category ){
+    // console.log('createOnClick', this.props);
+    switch ( category ){
+      case('people'): return this.props.actions.people;
+      case('planets'): return this.props.actions.planets;
+      case('films'): return this.props.actions.films;
+      case('species'): return this.props.actions.species;
+      case('vehicles'): return this.props.actions.vehicles;
+      case('starships'): return this.props.actions.starships;
+    }
+  }
+
   createMenuFooter(){
-    console.log(this.props);
     return this.state.resourceTypes.map( item => <Anchor
         key={item}
+        onClick={ this.createOnClick(item) }
         path={ `/${item}` }>
         {item[0].toUpperCase()}{item.substring(1)}
       </Anchor>
@@ -42,18 +64,12 @@ class PageFooter extends Component {
         <Title>
           SWAPI
         </Title>
-        <Box direction='row'
-             align='center'
-             pad={{"between": "medium"}}>
+        <Box direction='row' align='center' pad={{"between": "medium"}}>
           <Paragraph margin='none'>
             mrMizerakl © 2016
           </Paragraph>
-          <Menu direction='row'
-                size='small'
-                dropAlign={{"right": "right"}}>
-            <Anchor
-              key='footerhome'
-              path='/'>
+          <Menu direction='row' size='small' dropAlign={{"right": "right"}}>
+            <Anchor key='footerhome' path='/'>
               Home
             </Anchor>
             { this.createMenuFooter() }
@@ -64,4 +80,17 @@ class PageFooter extends Component {
   }
 }
 
-export default PageFooter;
+const mapStateToProps = ({people, category}) => {
+  return {
+    people, category
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators({ showLoader, hideLoader, people, films, planets, species, vehicles, starships }, dispatch),
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PageFooter);
+// export default PageFooter;

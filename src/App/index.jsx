@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import Comparison from './containers/comparison';
 import configureStore from './store';
@@ -13,9 +12,7 @@ class App extends React.PureComponent {
   render() {
     return (
       <Provider store={store}>
-        <BrowserRouter>
-          <Comparison />
-        </BrowserRouter>
+        <Comparison />
       </Provider>
     );
   }

@@ -1,8 +1,7 @@
-// import repositories from './repositories';
-// import loader from './loader';
-// import loaded from './loaded';
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
+import loader from './loader';
+import repositories from './repositories';
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({loader, repositories});
 
 export default rootReducer;

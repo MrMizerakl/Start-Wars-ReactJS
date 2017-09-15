@@ -1,5 +1,16 @@
 export const initialStore = {
-  resourceTypes: [],
-  loading: true,
-  loadedPage: false
+  type: '',
+  category: '',
+  repositories: {},
+  loading: false
 };
+
+/*
+  resourceTypes: [],
+  selectType: '',
+  selectId: 0,
+  ,
+
+  loadedPage: false
+
+ */

@@ -11,7 +11,6 @@ import srcImage2 from './assets/Anikin-Skywalker.jpg';
 import 'react-typist/dist/Typist.css';
 
 class Home extends React.PureComponent {
-
   render() {
     let srcImage = Math.round(Math.random()*100 +1) % 2 ? srcImage1 : srcImage2;
     return (
