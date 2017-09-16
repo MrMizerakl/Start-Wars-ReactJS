@@ -42,11 +42,11 @@ class SearchHeader extends React.Component {
 
   setCurrentResourceType(type) {
     if (!type) return;
-
+console.log('setCurrentResourceType',type);
     const { query } = this.props.search;
+    this.props.updateSearchType({ type });
     this.props.history.replace(`/search/${type}/${query || ' '}`);
 
-    this.props.updateSearchType({ type });
     this.props.onResult(type, query || ' ');
   }
 
@@ -84,9 +84,8 @@ class SearchHeader extends React.Component {
 
     if (!type) return;
 
-    this.props.history.replace(`/search/${type}/${searchQuery || ' '}`);
-
     this.props.updateSearchQuery({query: searchQuery || ' '});
+    this.props.history.replace(`/search/${type}/${searchQuery || ' '}`);
 
     this.props.onResult(type, searchQuery || ' ');
   }

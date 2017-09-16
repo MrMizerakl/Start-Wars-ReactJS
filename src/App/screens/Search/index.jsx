@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
+import { searchSwapi } from './../../ducks/searchResult';
 
 import SearchPane from './components/SearchPane';
 import Section from '../../../common/components/Section';
@@ -10,64 +13,61 @@ import Value from '../../../common/components/Value';
 import Headline from '../../../common/components/Headline';
 import ListPlaceholder from '../../../common/components/ListPlaceholder';
 
+// isSearching: true,
+// searchType: props.match.params.type,
+// searchQuery: props.match.params.query,
+
+
 class Search extends React.Component {
   constructor(props, context) {
     super(props, context);
 
     this.state = {
-      isSearching: true,
-      searchType: props.match.params.type,
-      searchQuery: props.match.params.query,
       searchResult: {},
     };
 
-    this.onTilesMore = this.onMore.bind(this);
+    // this.onTilesMore = this.onMore.bind(this);
   }
 
   componentDidMount() {
-    const { params } = this.props.match;
-
-    this.search(params.type, params.query);
+    this.props.searchSwapi();
   }
 
   componentWillReceiveProps(nextProps) {
-    const { params } = nextProps.match;
+    const { type, query } = this.props.search;
 
-    this.setState({
-      isSearching: true,
-      searchType: params.type,
-      searchQuery: params.query,
-    }, () => {
-      this.onTilesMore = this.onMore.bind(this);
+    // this.onTilesMore = this.onMore.bind(this);
 
-      this.search(params.type, params.query);
-    });
+    if( nextProps.search.type !== type || nextProps.search.query !== query ){
+      this.props.searchSwapi();
+    }
   }
 
   onSearchResult(result) {
     if (!result.next) this.onTilesMore = null;
 
     this.setState({
-      isSearching: false,
+      // isSearching: false,
       searchResult: result,
     });
   }
 
-  onMore() {
-    this.searchMore(this.state.searchResult.next);
-  }
-
+  // onMore() {
+  //   this.searchMore(this.state.searchResult.next);
+  // }
+  //
   get searchTiles() {
-    const { searchResult, searchType } = this.state;
+    const { type } = this.props.search;
+    const { results } = this.props.searchResult;
 
     return (
       <Tiles
         fill
-        onMore={this.onTilesMore}
+        // onMore={this.onTilesMore}
       >
         {
-          searchResult.results.map(
-            item => <SearchPane key={item.url} type={searchType} data={item} />,
+          results.map(
+            item => <SearchPane key={item.url} type={type} data={item} />,
           )
         }
       </Tiles>
@@ -75,24 +75,25 @@ class Search extends React.Component {
   }
 
   get placeHolder() {
-    const { searchType, searchQuery } = this.state;
+    const { type, query } = this.props.search;
+    const { fetching } = this.props.searchResult;
 
-    return this.state.isSearching ?
+    return fetching ?
       <ListPlaceholder /> :
       <Headline align="center">
-        {`Cannot find "${searchQuery}" in ${searchType} collection. :(`}
+        {`Cannot find "${query}" in ${type} collection. :(`}
       </Headline>;
   }
 
   get meter() {
-    const { searchResult, searchType } = this.state;
+    const { fetching, type, results, count } = this.props.searchResult;
 
-    return searchResult.count ? (
+    return fetching ? (
       <Box align="center">
-        <Meter value={(searchResult.results.length * 100) / searchResult.count} />
+        <Meter value={(results.length * 100) / count} />
         <Value
-          value={searchResult.results.length}
-          units={searchType}
+          value={results.length}
+          units={type}
           align="center"
         />
       </Box>
@@ -101,10 +102,10 @@ class Search extends React.Component {
   }
 
   search(type, query) {
-    window
-      .fetch(`https://swapi.co/api/${type}/?search=${query}`)
-      .then(res => res.json())
-      .then(json => this.onSearchResult(json));
+    // window
+    //   .fetch(`https://swapi.co/api/${type}/?search=${query}`)
+    //   .then(res => res.json())
+    //   .then(json => this.onSearchResult(json));
   }
 
   searchMore(nextUrl) {
@@ -124,7 +125,7 @@ class Search extends React.Component {
                 count: json.count,
                 next: json.next,
                 previous: json.previous,
-                results: [...this.state.searchResult.results, ...json.results],
+                results: [...this.props.searchResult.results, ...json.results],
               },
             });
           });
@@ -137,7 +138,7 @@ class Search extends React.Component {
       <Section>
         <Box align="center">
           {
-            this.state.searchResult.count
+            this.props.searchResult.count
               ? this.searchTiles
               : this.placeHolder
           }
@@ -154,4 +155,13 @@ Search.propTypes = {
   }).isRequired,
 };
 
-export default Search;
+const mapStateToProps = ({ search, searchResult }) => ({
+  search,
+  searchResult
+});
+
+const mapDispatchToProps = dispatch => ({
+  searchSwapi: payload => dispatch(searchSwapi(payload)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);

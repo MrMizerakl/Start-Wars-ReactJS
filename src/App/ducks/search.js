@@ -1,9 +1,24 @@
+import { getState } from "./../config/store";
+
 const initialState = {
   type: '',
   query: '',
   types: [],
   fetch: false,
 };
+
+export function getSearch() {
+  return getState().search;
+}
+
+export function getSearchQuery(){
+  console.log('query', getSearch() );
+  return getSearch().query;
+}
+
+export function getSearchType(){
+  return getSearch().type;
+}
 
 const FETCHED_SWAPI_TYPES_STARTED = 'swapi/search/FETCHED_SWAPI_TYPES_STARTED';
 function fetchSwapiTypesStarted(payload={ fetch:true }) {
@@ -55,6 +70,7 @@ export function fetchSwapiTypes(payload){
       .then(res => res.json())
       .then((json) => {
         const types = Object.keys(json);
+        dispatch(updateSearchType({type: types[0] || ''}));
         dispatch(fetchSwapiTypesSuccess({ types }));
       })
       .catch(error => dispatch(fetchSwapiTypesFailed({ error:error.message })));
