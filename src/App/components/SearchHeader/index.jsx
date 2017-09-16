@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import { updateSearchType } from './../../ducks/search';
+import { updateSearchQuery } from './../../ducks/search';
+import { fetchSwapiTypes } from './../../ducks/search';
 
 import Header from '../../../common/components/Header';
 import Heading from '../../../common/components/Heading';
@@ -19,29 +24,14 @@ class SearchHeader extends React.Component {
 
     this.private = {
       throttleTimeout: -1,
-      currentSearchQuery: '',
-    };
-
-    this.state = {
-      currentResourceType: '',
-      resourceTypes: [],
     };
 
     this.onHeaderSearch = this.onHeaderSearch.bind(this);
   }
 
   componentWillMount() {
-    window
-      .fetch('https://swapi.co/api/')
-      .then(res => res.json())
-      .then((json) => {
-        const resourceTypes = Object.keys(json);
-
-        this.setState({
-          resourceTypes,
-          currentResourceType: resourceTypes[0] || '',
-        });
-      });
+    console.log('componentWillMount', this.props.search);
+    this.props.fetchSwapiTypes();
   }
 
   onHeaderSearch(e) {
@@ -53,20 +43,24 @@ class SearchHeader extends React.Component {
   setCurrentResourceType(type) {
     if (!type) return;
 
-    const { currentSearchQuery } = this.private;
-    this.props.history.replace(`/search/${type}/${currentSearchQuery || ' '}`);
+    const { query } = this.props.search;
+    this.props.history.replace(`/search/${type}/${query || ' '}`);
 
-    this.setState({ currentResourceType: type });
+    this.props.updateSearchType({ type });
+    this.props.onResult(type, query || ' ');
+  }
 
-    this.props.onResult(type, currentSearchQuery || ' ');
+  getCurrentResourceType(){
+    const { type, types } = this.props.search;
+    return type || types[0] || '';
   }
 
   get menu() {
-    const { resourceTypes } = this.state;
+    const { types, fetching, error } = this.props.search;
 
-    return this.state.resourceTypes.length ?
-      <Menu>
-        {resourceTypes.map(
+    return (<Menu>{ fetching ? <Spinning /> : null }
+      {error ? <Heading tag='h4'>{error}</Heading> :
+        types.map(
           type => (
             <Anchor
               key={type}
@@ -82,20 +76,19 @@ class SearchHeader extends React.Component {
             </Anchor>
           ),
         )}
-      </Menu> :
-      <Menu icon={<Spinning />} />;
+      </Menu>);
   }
 
   search(searchQuery) {
-    const { currentResourceType } = this.state;
+    const type = this.getCurrentResourceType();
 
-    if (!currentResourceType) return;
+    if (!type) return;
 
-    this.props.history.replace(`/search/${currentResourceType}/${searchQuery || ' '}`);
+    this.props.history.replace(`/search/${type}/${searchQuery || ' '}`);
 
-    this.private.currentSearchQuery = searchQuery;
+    this.props.updateSearchQuery({query: searchQuery || ' '});
 
-    this.props.onResult(currentResourceType, searchQuery || ' ');
+    this.props.onResult(type, searchQuery || ' ');
   }
 
   render() {
@@ -107,7 +100,7 @@ class SearchHeader extends React.Component {
           </Heading>
         </Anchor>
         <Search
-          placeHolder={`Embrace the world of Star Wars! Search for ${this.state.currentResourceType}...`}
+          placeHolder={`Embrace the world of Star Wars! Search for ${this.props.search.types[0]}...`}
           onDOMChange={this.onHeaderSearch}
         />
         {this.menu}
@@ -127,4 +120,14 @@ SearchHeader.defaultProps = {
   onResult() {},
 };
 
-export default withRouter(SearchHeader);
+const mapStateToProps = ({ search }) => ({
+  search,
+});
+
+const mapDispatchToProps = dispatch => ({
+  fetchSwapiTypes: payload => dispatch(fetchSwapiTypes(payload)),
+  updateSearchType: payload => dispatch(updateSearchType(payload)),
+  updateSearchQuery: payload => dispatch(updateSearchQuery(payload)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(SearchHeader));
