@@ -12,7 +12,6 @@ export function getSearch() {
 }
 
 export function getSearchQuery(){
-  console.log('query', getSearch() );
   return getSearch().query;
 }
 
@@ -64,8 +63,7 @@ export function updateSearchQuery(payload) {
 export function fetchSwapiTypes(payload){
   return (dispatch) => {
     dispatch(fetchSwapiTypesStarted(payload));
-
-    return   window
+    return window
       .fetch('https://swapi.co/api/')
       .then(res => res.json())
       .then((json) => {
@@ -78,7 +76,6 @@ export function fetchSwapiTypes(payload){
 }
 
 export default (state = initialState, { type, payload }) => {
-  console.log('action', type, payload);
   switch (type) {
     case UPDATE_SEARCH_TYPE:
       return Object.assign({}, state, payload);

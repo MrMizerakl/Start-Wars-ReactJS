@@ -30,23 +30,19 @@ class SearchHeader extends React.Component {
   }
 
   componentWillMount() {
-    console.log('componentWillMount', this.props.search);
     this.props.fetchSwapiTypes();
   }
 
   onHeaderSearch(e) {
     window.clearTimeout(this.private.throttleTimeout);
-
     this.private.throttleTimeout = window.setTimeout(() => this.search(e.target.value), DELAY);
   }
 
   setCurrentResourceType(type) {
     if (!type) return;
-console.log('setCurrentResourceType',type);
     const { query } = this.props.search;
     this.props.updateSearchType({ type });
     this.props.history.replace(`/search/${type}/${query || ' '}`);
-
     this.props.onResult(type, query || ' ');
   }
 
@@ -81,12 +77,9 @@ console.log('setCurrentResourceType',type);
 
   search(searchQuery) {
     const type = this.getCurrentResourceType();
-
     if (!type) return;
-
     this.props.updateSearchQuery({query: searchQuery || ' '});
     this.props.history.replace(`/search/${type}/${searchQuery || ' '}`);
-
     this.props.onResult(type, searchQuery || ' ');
   }
 

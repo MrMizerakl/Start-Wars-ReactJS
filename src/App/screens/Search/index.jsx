@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { searchSwapi } from './../../ducks/searchResult';
+import { searchSwapi, doLoadSwapi } from '../../ducks/searchResults';
 
 import SearchPane from './components/SearchPane';
 import Section from '../../../common/components/Section';
@@ -13,22 +13,7 @@ import Value from '../../../common/components/Value';
 import Headline from '../../../common/components/Headline';
 import ListPlaceholder from '../../../common/components/ListPlaceholder';
 
-// isSearching: true,
-// searchType: props.match.params.type,
-// searchQuery: props.match.params.query,
-
-
 class Search extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-
-    this.state = {
-      searchResult: {},
-    };
-
-    // this.onTilesMore = this.onMore.bind(this);
-  }
-
   componentDidMount() {
     this.props.searchSwapi();
   }
@@ -36,21 +21,14 @@ class Search extends React.Component {
   componentWillReceiveProps(nextProps) {
     const { type, query } = this.props.search;
 
-    // this.onTilesMore = this.onMore.bind(this);
-
     if( nextProps.search.type !== type || nextProps.search.query !== query ){
       this.props.searchSwapi();
     }
   }
 
-  onSearchResult(result) {
-    if (!result.next) this.onTilesMore = null;
-
-    this.setState({
-      // isSearching: false,
-      searchResult: result,
-    });
-  }
+  // onSearchResult(result) {
+  //   if (!result.next) this.onTilesMore = null;
+  // }
 
   // onMore() {
   //   this.searchMore(this.state.searchResult.next);
@@ -58,13 +36,11 @@ class Search extends React.Component {
   //
   get searchTiles() {
     const { type } = this.props.search;
-    const { results } = this.props.searchResult;
-
+    const { results, count , next } = this.props.searchResults;
+console.log('searchTiles', results.length, count, next);
+    // onMore={this.onTilesMore}
     return (
-      <Tiles
-        fill
-        // onMore={this.onTilesMore}
-      >
+      <Tiles fill onMore={ results.length < count ? this.props.doLoadSwapi : null }>
         {
           results.map(
             item => <SearchPane key={item.url} type={type} data={item} />,
@@ -76,7 +52,7 @@ class Search extends React.Component {
 
   get placeHolder() {
     const { type, query } = this.props.search;
-    const { fetching } = this.props.searchResult;
+    const { fetching } = this.props.searchResults;
 
     return fetching ?
       <ListPlaceholder /> :
@@ -86,9 +62,10 @@ class Search extends React.Component {
   }
 
   get meter() {
-    const { fetching, type, results, count } = this.props.searchResult;
+    const { type } = this.props.search;
+    const { results, count } = this.props.searchResults;
 
-    return fetching ? (
+    return count ? (
       <Box align="center">
         <Meter value={(results.length * 100) / count} />
         <Value
@@ -97,51 +74,16 @@ class Search extends React.Component {
           align="center"
         />
       </Box>
-    ) :
-      null;
-  }
-
-  search(type, query) {
-    // window
-    //   .fetch(`https://swapi.co/api/${type}/?search=${query}`)
-    //   .then(res => res.json())
-    //   .then(json => this.onSearchResult(json));
-  }
-
-  searchMore(nextUrl) {
-    if (nextUrl && !this.state.isSearching) {
-      this.setState({
-        isSearching: true,
-      }, () => {
-        window
-          .fetch(nextUrl)
-          .then(res => res.json())
-          .then((json) => {
-            if (!json.next) this.onTilesMore = null;
-
-            this.setState({
-              isSearching: false,
-              searchResult: {
-                count: json.count,
-                next: json.next,
-                previous: json.previous,
-                results: [...this.props.searchResult.results, ...json.results],
-              },
-            });
-          });
-      });
-    }
+    ) : null;
   }
 
   render() {
+    const { count } = this.props.searchResults;
+
     return (
       <Section>
         <Box align="center">
-          {
-            this.props.searchResult.count
-              ? this.searchTiles
-              : this.placeHolder
-          }
+          { count ? this.searchTiles : this.placeHolder }
         </Box>
         {this.meter}
       </Section>
@@ -155,13 +97,14 @@ Search.propTypes = {
   }).isRequired,
 };
 
-const mapStateToProps = ({ search, searchResult }) => ({
+const mapStateToProps = ({ search, searchResults }) => ({
   search,
-  searchResult
+  searchResults
 });
 
 const mapDispatchToProps = dispatch => ({
   searchSwapi: payload => dispatch(searchSwapi(payload)),
+  doLoadSwapi: payload => dispatch(doLoadSwapi(payload)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);
