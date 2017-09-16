@@ -26,19 +26,9 @@ class Search extends React.Component {
     }
   }
 
-  // onSearchResult(result) {
-  //   if (!result.next) this.onTilesMore = null;
-  // }
-
-  // onMore() {
-  //   this.searchMore(this.state.searchResult.next);
-  // }
-  //
   get searchTiles() {
     const { type } = this.props.search;
     const { results, count , next } = this.props.searchResults;
-console.log('searchTiles', results.length, count, next);
-    // onMore={this.onTilesMore}
     return (
       <Tiles fill onMore={ results.length < count ? this.props.doLoadSwapi : null }>
         {
