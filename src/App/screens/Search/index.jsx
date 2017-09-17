@@ -28,9 +28,9 @@ class Search extends React.Component {
 
   get searchTiles() {
     const { type } = this.props.search;
-    const { results, count , next } = this.props.searchResults;
+    const { results, count , next, fetching } = this.props.searchResults;
     return (
-      <Tiles fill onMore={ results.length < count ? this.props.doLoadSwapi : null }>
+      <Tiles fill onMore={ !fetching && results.length < count ? this.props.doLoadSwapi : null }>
         {
           results.map(
             item => <SearchPane key={item.url} type={type} data={item} />,
