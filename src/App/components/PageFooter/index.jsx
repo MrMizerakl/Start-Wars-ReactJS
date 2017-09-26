@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { push } from 'react-router-redux';
+
 import { bindActionCreators } from 'redux';
 import { showLoader, hideLoader } from "./../../actions/loader";
 import { people } from './../../actions/people';
@@ -16,7 +18,7 @@ import Paragraph from 'grommet/components/Paragraph';
 import Menu from 'grommet/components/Menu';
 import Anchor from 'grommet/components/Anchor';
 
-import { withRouter } from 'react-router';
+// import { withRouter } from 'react-router';
 
 class PageFooter extends Component {
 
@@ -31,7 +33,7 @@ class PageFooter extends Component {
             mrMizerakl © 2016
           </Paragraph>
           <Menu direction='row' size='small' dropAlign={{"right": "right"}}>
-            <Anchor key='footerhome' path='/'>Home</Anchor>
+            <Anchor key='footerhome' path='/' onClick={() => {return this.props.actions.push('/')}}>Home</Anchor>
             <Anchor key='people' path='/people' onClick={this.props.actions.people}>People</Anchor>
             <Anchor key='planets' path='/planets' onClick={this.props.actions.planets}>Planets</Anchor>
             <Anchor key='films' path='/films' onClick={this.props.actions.films}>Films</Anchor>
@@ -53,9 +55,9 @@ const mapStateToProps = ({repositories, loader}) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    actions: bindActionCreators({ showLoader, hideLoader, people, films, planets, species, vehicles, starships }, dispatch),
+    actions: bindActionCreators({ showLoader, hideLoader, people, films, planets, species, vehicles, starships, push }, dispatch),
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(PageFooter));
+export default connect(mapStateToProps, mapDispatchToProps)(PageFooter);
 // export default PageFooter;

@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { push } from 'react-router-redux';
+
 import { bindActionCreators } from 'redux';
 import { showLoader, hideLoader } from "./../../../actions/loader";
 import { people } from './../../../actions/people';
@@ -14,7 +16,7 @@ import Anchor from 'grommet/components/Anchor';
 import Box from 'grommet/components/Box';
 import Meter from 'grommet/components/Meter';
 
-import { withRouter } from 'react-router';
+// import { withRouter } from 'react-router';
 
 class People extends React.PureComponent {
   constructor(...arg){
@@ -50,7 +52,7 @@ class People extends React.PureComponent {
 
   doOnClick( id ) {
     this.props.actions.updateSearchParameters({ parameters: { resource:'people', id: id }});
-    this.props.history.replace(`/people/${id || ' '}`);
+    this.props.actions.push(`/people/${id || ' '}`);
   }
 
   render(){
@@ -91,8 +93,8 @@ const mapStateToProps = ({repositories, loading}) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    actions: bindActionCreators({ showLoader, hideLoader, people, updateSearchParameters }, dispatch),
+    actions: bindActionCreators({ showLoader, hideLoader, people, updateSearchParameters, push }, dispatch),
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(People));
+export default connect(mapStateToProps, mapDispatchToProps)(People);

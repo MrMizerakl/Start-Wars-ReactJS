@@ -2,74 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6f0eba1-17e7-4050-91e2-0e4e6896fc4a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/Films/assets/StarWars.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/Home/assets/Anikin-Skywalker.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/Home/assets/star-wars-anthology.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/People/assets.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/People/assets/AnakinSkywalker.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/People/assets/BeruWhitesunlars.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/People/assets/BiggsDarklighter.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/People/assets/C3PO.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/People/assets/Chewbacca.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/People/assets/DarthVader.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/People/assets/HanSolo.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/People/assets/LeiaOrgana.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/People/assets/LukeSkywalker.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/People/assets/ObiWanKenobi.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/People/assets/OwenLars.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/People/assets/R2D2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/People/assets/R5D4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/People/assets/StarWars.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/People/assets/WilhuffTarkin.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/Planets/assets/Alderaan.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/Planets/assets/Alderaan1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/Planets/assets/Alderaan2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/Planets/assets/Dagobah.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/Planets/assets/Dagobah1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/Planets/assets/Dagobah2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/Planets/assets/Dagobah3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/Planets/assets/Hoth.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/Planets/assets/Hoth1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/Planets/assets/Hoth2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/Planets/assets/Hoth3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/Planets/assets/StarWars.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/Planets/assets/Tatooine.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/Planets/assets/Tatooine1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/Planets/assets/Tatooine2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/Planets/assets/Tatooine3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/Planets/assets/YavinIV.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/Planets/assets/YavinIV1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/Planets/assets/YavinIV2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/Planets/assets/YavinIV3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/Planets/assets/alderaan3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/Search/assets/star-wars.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/Species/assets/StarWars.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/Starships/assets/StarWars.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/App/components/Screens/Vehicles/assets/StarWars.jpg" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/App/reducers/loading.js" afterPath="$PROJECT_DIR$/src/App/reducers/loader.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/actions/people.js" afterPath="$PROJECT_DIR$/src/App/actions/people.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/components/PageFooter/index.jsx" afterPath="$PROJECT_DIR$/src/App/components/PageFooter/index.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/components/PageRouter/index.jsx" afterPath="$PROJECT_DIR$/src/App/components/PageRouter/index.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/components/Screens/Films/index.jsx" afterPath="$PROJECT_DIR$/src/App/components/Screens/Films/index.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/components/Screens/Home/index.jsx" afterPath="$PROJECT_DIR$/src/App/components/Screens/Home/index.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/components/Screens/People/index.jsx" afterPath="$PROJECT_DIR$/src/App/components/Screens/People/index.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/components/Screens/People/personage.jsx" afterPath="$PROJECT_DIR$/src/App/components/Screens/People/personage.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/components/Screens/Planets/index.jsx" afterPath="$PROJECT_DIR$/src/App/components/Screens/Planets/index.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/components/Screens/Search/index.jsx" afterPath="$PROJECT_DIR$/src/App/components/Screens/Search/index.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/components/Screens/Species/index.jsx" afterPath="$PROJECT_DIR$/src/App/components/Screens/Species/index.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/components/Screens/Starships/index.jsx" afterPath="$PROJECT_DIR$/src/App/components/Screens/Starships/index.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/components/Screens/Vehicles/index.jsx" afterPath="$PROJECT_DIR$/src/App/components/Screens/Vehicles/index.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/components/SearchHeader/index.jsx" afterPath="$PROJECT_DIR$/src/App/components/SearchHeader/index.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/components/loader/index.js" afterPath="$PROJECT_DIR$/src/App/components/loader/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/constants/index.jsx" afterPath="$PROJECT_DIR$/src/App/constants/index.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/containers/comparison/index.jsx" afterPath="$PROJECT_DIR$/src/App/containers/comparison/index.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/index.jsx" afterPath="$PROJECT_DIR$/src/App/index.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/reducers/index.jsx" afterPath="$PROJECT_DIR$/src/App/reducers/index.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/reducers/repositories.js" afterPath="$PROJECT_DIR$/src/App/reducers/repositories.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/store/index.jsx" afterPath="$PROJECT_DIR$/src/App/store/index.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App/store/initial-store.jsx" afterPath="$PROJECT_DIR$/src/App/store/initial-store.jsx" />
     </list>
     <ignored path="catalog-start-wars.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -88,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.jsx" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App/components/PageFooter/index.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="34" column="77" lean-forward="true" selection-start-line="34" selection-start-column="77" selection-end-line="34" selection-end-column="77" />
+            <state relative-caret-position="295">
+              <caret line="35" column="98" lean-forward="false" selection-start-line="35" selection-start-column="98" selection-end-line="35" selection-end-column="98" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -103,9 +38,11 @@
       <file leaf-file-name="index.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App/components/SearchHeader/index.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
+            <state relative-caret-position="980">
               <caret line="70" column="37" lean-forward="false" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="37" />
-              <folding />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -133,8 +70,8 @@
       <file leaf-file-name="index.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App/components/Screens/People/index.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="28">
-              <caret line="44" column="3" lean-forward="true" selection-start-line="44" selection-start-column="3" selection-end-line="44" selection-end-column="3" />
+            <state relative-caret-position="434">
+              <caret line="55" column="3" lean-forward="true" selection-start-line="55" selection-start-column="3" selection-end-line="55" selection-end-column="3" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -152,11 +89,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App/index.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
-              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+            <state relative-caret-position="28">
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -175,7 +112,7 @@
       <file leaf-file-name="personage.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App/components/Screens/People/personage.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1148">
+            <state relative-caret-position="1022">
               <caret line="88" column="13" lean-forward="false" selection-start-line="88" selection-start-column="13" selection-end-line="88" selection-end-column="13" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -187,7 +124,7 @@
       <file leaf-file-name="personage.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App/actions/personage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
+            <state relative-caret-position="294">
               <caret line="22" column="27" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
               <folding>
                 <element signature="e#0#81#0" expanded="true" />
@@ -276,16 +213,16 @@
         <option value="$PROJECT_DIR$/src/App/store/index.jsx" />
         <option value="$PROJECT_DIR$/src/App/components/Screens/Home/index.jsx" />
         <option value="$PROJECT_DIR$/src/App/reducers/index.jsx" />
-        <option value="$PROJECT_DIR$/src/App/components/Screens/People/index.jsx" />
         <option value="$PROJECT_DIR$/src/App/reducers/repositories.js" />
         <option value="$PROJECT_DIR$/src/App/components/loader/index.js" />
-        <option value="$PROJECT_DIR$/src/App/components/PageFooter/index.jsx" />
         <option value="$PROJECT_DIR$/src/App/actions/personage.js" />
         <option value="$PROJECT_DIR$/src/App/components/Screens/People/personage.jsx" />
         <option value="$PROJECT_DIR$/src/App/components/SearchHeader/index.jsx" />
         <option value="$PROJECT_DIR$/src/App/components/PageRouter/index.jsx" />
         <option value="$PROJECT_DIR$/src/App/containers/comparison/index.jsx" />
         <option value="$PROJECT_DIR$/src/App/index.jsx" />
+        <option value="$PROJECT_DIR$/src/App/components/Screens/People/index.jsx" />
+        <option value="$PROJECT_DIR$/src/App/components/PageFooter/index.jsx" />
       </list>
     </option>
   </component>
@@ -373,6 +310,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -404,15 +342,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="App" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="PageRouter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="catalog-start-wars" type="b2602c69:ProjectViewProjectNode" />
-              <item name="catalog-start-wars" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="App" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Screens" type="462c0819:PsiDirectoryNode" />
+              <item name="PageFooter" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="catalog-start-wars" type="b2602c69:ProjectViewProjectNode" />
@@ -469,7 +399,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -616,6 +545,8 @@
       <workItem from="1506065172271" duration="15453000" />
       <workItem from="1506111337755" duration="12551000" />
       <workItem from="1506371585964" duration="5445000" />
+      <workItem from="1506426834504" duration="1041000" />
+      <workItem from="1506455404278" duration="1059000" />
     </task>
     <task id="LOCAL-00001" summary="Add Planets, no Carousel">
       <created>1504871843997</created>
@@ -649,7 +580,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="212847000" />
+    <option name="totallyTimeSpent" value="214947000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -664,22 +595,22 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1762481" sideWeight="0.8045977" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18078668" sideWeight="0.8045977" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32840723" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5944171" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32840723" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45155993" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20272315" sideWeight="0.1954023" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49917898" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32840723" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1633888" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23600605" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5944171" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -869,7 +800,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="12" column="29" lean-forward="false" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -877,9 +807,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="449">
           <caret line="159" column="3" lean-forward="true" selection-start-line="159" selection-start-column="3" selection-end-line="159" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -887,9 +814,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
           <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -897,7 +821,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="12" column="29" lean-forward="false" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -905,9 +828,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="477">
           <caret line="117" column="0" lean-forward="true" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -915,9 +835,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="49" column="9" lean-forward="true" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -925,9 +842,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#58#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -935,7 +849,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="70">
           <caret line="5" column="57" lean-forward="true" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -951,7 +864,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -966,9 +878,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -976,7 +885,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="56">
           <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -984,7 +892,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="3" column="16" lean-forward="false" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -992,9 +899,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="56">
           <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#111#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1002,15 +906,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
           <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App/components/Screens/People/personage.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1148">
+        <state relative-caret-position="1022">
           <caret line="88" column="13" lean-forward="false" selection-start-line="88" selection-start-column="13" selection-end-line="88" selection-end-column="13" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -1020,7 +921,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App/actions/personage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
+        <state relative-caret-position="294">
           <caret line="22" column="27" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
           <folding>
             <element signature="e#0#81#0" expanded="true" />
@@ -1036,21 +937,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App/components/PageFooter/index.jsx">
+    <entry file="file://$PROJECT_DIR$/node_modules/react-router-redux/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="34" column="77" lean-forward="true" selection-start-line="34" selection-start-column="77" selection-end-line="34" selection-end-column="77" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App/components/SearchHeader/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="70" column="37" lean-forward="false" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="37" />
-          <folding />
+        <state relative-caret-position="-29">
+          <caret line="0" column="3" lean-forward="false" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -1062,18 +952,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/App/components/SearchHeader/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="980">
+          <caret line="70" column="37" lean-forward="false" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/App/components/Screens/Home/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="434">
           <caret line="45" column="25" lean-forward="false" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-router-redux/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-29">
-          <caret line="0" column="3" lean-forward="false" selection-start-line="0" selection-start-column="3" selection-end-line="0" selection-end-column="3" />
           <folding />
         </state>
       </provider>
@@ -1086,21 +978,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App/components/Screens/People/index.jsx">
+    <entry file="file://$PROJECT_DIR$/src/App/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="28">
-          <caret line="44" column="3" lean-forward="true" selection-start-line="44" selection-start-column="3" selection-end-line="44" selection-end-column="3" />
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App/components/Screens/People/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="55" column="3" lean-forward="true" selection-start-line="55" selection-start-column="3" selection-end-line="55" selection-end-column="3" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App/index.jsx">
+    <entry file="file://$PROJECT_DIR$/src/App/components/PageFooter/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="295">
+          <caret line="35" column="98" lean-forward="false" selection-start-line="35" selection-start-column="98" selection-end-line="35" selection-end-column="98" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
