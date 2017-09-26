@@ -8,9 +8,9 @@ import Anchor from 'grommet/components/Anchor';
 import Box from 'grommet/components/Box';
 import Meter from 'grommet/components/Meter';
 
-import { withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
-import StarWars from './assets/StarWars.jpg';
+import StarWars from './../../assets/StarWars.jpg';
 
 class Starships extends React.PureComponent {
   constructor(...arg){

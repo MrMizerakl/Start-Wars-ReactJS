@@ -14,29 +14,29 @@ import ListItem from 'grommet/components/ListItem';
 import Columns from 'grommet/components/Columns';
 import Carousel from 'grommet/components/Carousel';
 
-import { withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
-import StarWars from './assets/StarWars.jpg';
-import Alderaan from './assets/Alderaan.jpg';
-import Alderaan1 from './assets/Alderaan1.jpg';
-import Alderaan2 from './assets/Alderaan2.jpg';
-import Alderaan3 from './assets/Alderaan3.jpg';
-import Dagobah from './assets/Dagobah.jpg';
-import Dagobah1 from './assets/Dagobah1.jpg';
-import Dagobah2 from './assets/Dagobah2.jpg';
-import Dagobah3 from './assets/Dagobah3.jpg';
-import Hoth from './assets/Hoth.jpg';
-import Hoth1 from './assets/Hoth1.jpg';
-import Hoth2 from './assets/Hoth2.jpg';
-import Hoth3 from './assets/Hoth3.jpg';
-import YavinIV from './assets/YavinIV.jpg';
-import YavinIV1 from './assets/YavinIV1.jpg';
-import YavinIV2 from './assets/YavinIV2.jpg';
-import YavinIV3 from './assets/YavinIV3.jpg';
-import Tatooine from './assets/Tatooine.jpg';
-import Tatooine1 from './assets/Tatooine1.jpg';
-import Tatooine2 from './assets/Tatooine2.jpg';
-import Tatooine3 from './assets/Tatooine3.jpg';
+import StarWars from './../../assets/StarWars.jpg';
+import Alderaan from './../../assets/Alderaan.jpg';
+import Alderaan1 from './../../assets/Alderaan1.jpg';
+import Alderaan2 from './../../assets/Alderaan2.jpg';
+import Alderaan3 from './../../assets/Alderaan3.jpg';
+import Dagobah from './../../assets/Dagobah.jpg';
+import Dagobah1 from './../../assets/Dagobah1.jpg';
+import Dagobah2 from './../../assets/Dagobah2.jpg';
+import Dagobah3 from './../../assets/Dagobah3.jpg';
+import Hoth from './../../assets/Hoth.jpg';
+import Hoth1 from './../../assets/Hoth1.jpg';
+import Hoth2 from './../../assets/Hoth2.jpg';
+import Hoth3 from './../../assets/Hoth3.jpg';
+import YavinIV from './../../assets/YavinIV.jpg';
+import YavinIV1 from './../../assets/YavinIV1.jpg';
+import YavinIV2 from './../../assets/YavinIV2.jpg';
+import YavinIV3 from './../../assets/YavinIV3.jpg';
+import Tatooine from './../../assets/Tatooine.jpg';
+import Tatooine1 from './../../assets/Tatooine1.jpg';
+import Tatooine2 from './../../assets/Tatooine2.jpg';
+import Tatooine3 from './../../assets/Tatooine3.jpg';
 
 class Planets extends React.PureComponent {
   constructor(...arg){

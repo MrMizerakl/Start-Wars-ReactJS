@@ -16,48 +16,9 @@ import Paragraph from 'grommet/components/Paragraph';
 import Menu from 'grommet/components/Menu';
 import Anchor from 'grommet/components/Anchor';
 
+import { withRouter } from 'react-router';
+
 class PageFooter extends Component {
-
-  constructor(...args){
-    super(...args);
-
-    this.state = {
-      resourceTypes: []
-    };
-
-    this.createMenuFooter = this.createMenuFooter.bind(this);
-    this.createOnClick = this.createOnClick.bind(this);
-  }
-
-  componentWillMount(){
-    window
-      .fetch('http://swapi.co/api/')
-      .then( res => res.json() )
-      .then( json => this.setState({ resourceTypes: Object.keys(json) }) )
-  }
-
-  createOnClick( category ){
-    // console.log('createOnClick', this.props);
-    switch ( category ){
-      case('people'): return this.props.actions.people;
-      case('planets'): return this.props.actions.planets;
-      case('films'): return this.props.actions.films;
-      case('species'): return this.props.actions.species;
-      case('vehicles'): return this.props.actions.vehicles;
-      case('starships'): return this.props.actions.starships;
-    }
-  }
-
-  createMenuFooter(){
-    // this.createOnClick({item})
-    return this.state.resourceTypes.map( item => <Anchor
-        key={item}
-        onClick={ this.props.actions.people }
-        path={ `/${item}` }>
-        {item[0].toUpperCase()}{item.substring(1)}
-      </Anchor>
-    );
-  }
 
   render () {
     return (
@@ -84,9 +45,9 @@ class PageFooter extends Component {
   }
 }
 
-const mapStateToProps = ({type, category, repositories, loading}) => {
+const mapStateToProps = ({repositories, loader}) => {
   return {
-    type, category, repositories, loading
+    repositories, loader
   }
 };
 
@@ -96,5 +57,5 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(PageFooter);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(PageFooter));
 // export default PageFooter;

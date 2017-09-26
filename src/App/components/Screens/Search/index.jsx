@@ -7,8 +7,7 @@ import Value from 'grommet/components/Value';
 import Meter from 'grommet/components/Meter';
 import Box from 'grommet/components/Box';
 import Anchor from 'grommet/components/Anchor';
-import { withRouter } from 'react-router-dom';
-import srcImage from './assets/star-wars.jpg';
+import { withRouter } from 'react-router';
 
 class Search extends Component {
   constructor(...arg){
@@ -48,7 +47,6 @@ class Search extends Component {
           searchResult: json,
           countLoad: json.results.length
         });
-        // console.log(json);
         }
       );
   }
@@ -85,14 +83,24 @@ class Search extends Component {
     return `Found ${this.state.searchResult.count} records.`;
   }
 
-   render(){
+  getImage( arg ){
+    let img;
+    try {
+      img = require(`./../../assets/${arg}.jpg`);
+    } catch(e){
+      img = require(`./../../assets/StarWars.jpg`);
+    }
+    return img;
+  }
+
+  render(){
       return this.state.searchResult.count ? <Section>
         <Value value={this.getValueAll()} align='end' size='small' />
         <br />
         <Tiles fill={true} onMore={ this.loadDataSWAPI } >
           {this.state.searchResult.results.map(
             item => <Tile key={item.name}>
-              <Card thumbnail={srcImage}
+              <Card thumbnail={ this.getImage(item.name) }
                 heading={item.name || item.title}
                 key={item.name || item.title}
                 link={

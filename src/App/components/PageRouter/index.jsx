@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import { Route, Redirect, Switch } from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { showLoader, hideLoader } from "./../../actions/loader";
+
 import Home from './../Screens/Home';
 import Films from './../Screens/Films';
 import People from './../Screens/People';
@@ -18,9 +22,9 @@ class PageRouter extends Component {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route strict path="/search/:type/:query" component={Search} />
+        <Route strict path="/people/:id" component={Personage} />
         <Route path="/films" component={Films} />
         <Route path="/people" component={People} />
-        <Route path="/people/:id" component={Personage} />
         <Route path="/planets" component={Planets} />
         <Route path="/species" component={Species} />
         <Route path="/starships" component={Starships} />
@@ -31,4 +35,18 @@ class PageRouter extends Component {
   }
 }
 
-export default PageRouter;
+
+const mapStateToProps = ({repositories, loading}) => {
+  return {
+    repositories, loading
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators({ showLoader, hideLoader }, dispatch),
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PageRouter);
+// export default PageRouter;

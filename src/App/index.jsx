@@ -1,18 +1,23 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'react-router-redux';
+
+import configureStore, { history } from './store';
+import { initialStore } from './store/initial-store';
+
 import Comparison from './containers/comparison';
-import configureStore from './store';
-import {initialStore} from './store/initial-store';
 import './index.scss';
 import 'whatwg-fetch';
 
-const store = configureStore( initialStore );
+const store = configureStore(initialStore);
 
 class App extends React.PureComponent {
   render() {
     return (
       <Provider store={store}>
-        <Comparison />
+        <ConnectedRouter history={history}>
+          <Comparison />
+        </ConnectedRouter>
       </Provider>
     );
   }

@@ -1,4 +1,8 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { showLoader, hideLoader } from "./../../actions/loader";
+
 import Header from 'grommet/components/Header';
 import Box from 'grommet/components/Box';
 import Menu from 'grommet/components/Menu';
@@ -6,7 +10,7 @@ import Anchor from 'grommet/components/Anchor';
 import Search from 'grommet/components/Search';
 import Heading from 'grommet/components/Heading';
 import Actions from 'grommet/components/icons/base/Menu';
-import { withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
 class SearchHeader extends Component {
   constructor(...arg){
@@ -24,7 +28,7 @@ class SearchHeader extends Component {
 
   componentWillMount(){
       window
-          .fetch('http://swapi.co/api/')
+          .fetch('https://swapi.co/api/')
           .then( res => res.json() )
           .then(
               json => {this.setState({ resourceTypes: Object.keys(json) });
@@ -94,4 +98,18 @@ class SearchHeader extends Component {
   }
 }
 
-export default withRouter(SearchHeader);
+const mapStateToProps = ({repositories, loading}) => {
+  return {
+    repositories, loading
+  }
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators({ showLoader, hideLoader }, dispatch),
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(SearchHeader));
+
+// export default withRouter(SearchHeader);

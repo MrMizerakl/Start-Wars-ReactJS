@@ -1,7 +1,12 @@
-export const initialStore = {
-  type: '',
-  category: '',
-  repositories: {},
+export const repositories = {
+  resourceData: []
+};
+
+export const loader = {
   loading: false,
-  parameters: {}
+};
+
+export const initialStore = {
+  repositories,
+  loader
 };

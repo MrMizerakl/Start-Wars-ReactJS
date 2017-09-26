@@ -1,16 +1,12 @@
-import { LOADEDPAGE } from './../constants';
+import { LOADEDPAGE, UPDATE_SEARCH_TYPE, UPDATE_SEARCH_QUERY, UPDATE_SEARCH_PARAMETERS } from './../constants';
+import { initialStore } from './../store/initial-store';
 
-const repositories = (state = [], action) => {
-  if (action.type === LOADEDPAGE){
-    // console.log('people-reducer', action);
-    // console.log('...action.category',[...action.category]);
-    // console.log('action.category',action.category);
-    // console.log('...action.repositories',[...action.repositories]);
-    // console.log('action.repositories',action.repositories);
-    console.log('result', [...state, ...action.category, ...action.parameters, ...action.repositories]);
-    console.log('result now', [...state, {'category': action.category}, {'repositories': action.repositories}]);
-
-    return [...state, ...action.category, ...action.parameters, ...action.repositories];
+const repositories = (state = initialStore, action) => {
+  switch(action.type){
+    case LOADEDPAGE:
+      return Object.assign({}, state, action.repositories);
+    case UPDATE_SEARCH_PARAMETERS:
+      return Object.assign({}, state, action.repositories);
   }
   return state;
 };
