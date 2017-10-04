@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { push } from 'react-router-redux';
 import { bindActionCreators } from 'redux';
 import { showLoader, hideLoader } from "./../../actions/loader";
 
@@ -51,6 +52,7 @@ class SearchHeader extends Component {
   }
 
   setHistory(){
+      // this.props.actions.push( `/search/${this.state.searchType}/${this.state.searchData || ' '}`);
       this.props.history.replace( `/search/${this.state.searchType}/${this.state.searchData || ' '}`);
   }
 
@@ -67,7 +69,7 @@ class SearchHeader extends Component {
                       primary={false}
                       reverse={false}
                       disabled={false}
-                      path='/'
+                      path={{ path: '/', index: true }}
                       target='_blank'>
                   <Heading tag='h2'
                            strong={true}
@@ -106,7 +108,7 @@ const mapStateToProps = ({repositories, loading}) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    actions: bindActionCreators({ showLoader, hideLoader }, dispatch),
+    actions: bindActionCreators({ showLoader, hideLoader, push }, dispatch),
   }
 };
 

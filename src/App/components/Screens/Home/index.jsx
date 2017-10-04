@@ -3,6 +3,7 @@ import Typist from 'react-typist';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { homepage } from './../../../actions/homepage';
 import { showLoader, hideLoader } from "./../../../actions/loader";
 
 import Heading from 'grommet/components/Heading';
@@ -49,7 +50,7 @@ const mapStateToProps = ({repositories, loading}) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    actions: bindActionCreators({ showLoader, hideLoader }, dispatch),
+    actions: bindActionCreators({ showLoader, hideLoader, homepage }, dispatch),
   }
 };
 

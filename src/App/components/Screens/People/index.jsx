@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 
 import { bindActionCreators } from 'redux';
-import { showLoader, hideLoader } from "./../../../actions/loader";
 import { people } from './../../../actions/people';
-import { updateSearchParameters } from './../../../actions/personage';
+import { showLoader, hideLoader } from "./../../../actions/loader";
+import { updateSearchParameters, startLoading } from './../../../actions/personage';
 
 import Value from 'grommet/components/Value';
 import Section from 'grommet/components/Section';
@@ -16,16 +16,13 @@ import Anchor from 'grommet/components/Anchor';
 import Box from 'grommet/components/Box';
 import Meter from 'grommet/components/Meter';
 
-// import { withRouter } from 'react-router';
-
 class People extends React.PureComponent {
   constructor(...arg){
     super(...arg);
     
-    this.getImage = this.getImage.bind(this);
     this.getValueAll = this.getValueAll.bind(this);
     this.getValueCount = this.getValueCount.bind(this);
-    this.getUrl = this.getUrl.bind(this);
+    this.getPage = this.getPage.bind(this);
   }
 
   getValueCount(){
@@ -51,11 +48,12 @@ class People extends React.PureComponent {
   }
 
   doOnClick( id ) {
+    this.props.actions.startLoading();
     this.props.actions.updateSearchParameters({ parameters: { resource:'people', id: id }});
     this.props.actions.push(`/people/${id || ' '}`);
   }
 
-  render(){
+  getPage(){
     return this.props.repositories.resourceData.length>0 ? <Section>
       <Value value={this.getValueAll()} align='end' size='small' />
       <br />
@@ -70,9 +68,9 @@ class People extends React.PureComponent {
                                   () => { this.doOnClick( this.getUrl(item.url) ); }
                                 }
                                 label='Detail...' />
-                       }
-              />
-            </Tile>
+                  }
+            />
+          </Tile>
         )}
       </Tiles>
       <Box align='center'>
@@ -82,6 +80,10 @@ class People extends React.PureComponent {
                max={this.props.repositories.parameters.count}/>
       </Box>
     </Section> : <Section />;
+  }
+
+  render(){
+    return this.getPage()
   };
 }
 
@@ -93,7 +95,7 @@ const mapStateToProps = ({repositories, loading}) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    actions: bindActionCreators({ showLoader, hideLoader, people, updateSearchParameters, push }, dispatch),
+    actions: bindActionCreators({ startLoading, showLoader, hideLoader, people, updateSearchParameters, push }, dispatch),
   }
 };
 

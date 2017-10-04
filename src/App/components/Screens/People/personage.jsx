@@ -14,6 +14,9 @@ import ListItem from 'grommet/components/ListItem'
 import Tabs from 'grommet/components/Tabs'
 import Tab from 'grommet/components/Tab'
 import Paragraph from 'grommet/components/Paragraph'
+import Label from 'grommet/components/Label'
+import Tiles from 'grommet/components/Tiles'
+import Tile from 'grommet/components/Tile'
 
 class Personage extends React.PureComponent {
 
@@ -31,8 +34,18 @@ class Personage extends React.PureComponent {
     return img;
   }
 
+  getTabs( arr ) {
+    return arr.length ? <Tiles separator='none' align='start' basis='1/4'>
+      { arr.map( elm => {
+        return <Tile key={ elm.name }><Label size='small'>Part { elm.num }. <strong>{ elm.name }</strong></Label></Tile>
+      })} </Tiles> : <Paragraph><strong>Information not found</strong></Paragraph>;
+  }
+
   render(){
-    return <Section>
+    console.log( 'action-personage-films', this.props.repositories.resourceData );
+
+    return this.props.repositories.resourceData.name ?
+      <Section>
       <Headline strong={true}
                 size='medium'
                 align='center'>
@@ -86,11 +99,11 @@ class Personage extends React.PureComponent {
             </List>
           </Section>
         </Box>
+      </Columns>
+      <Columns  size='large' justify='center' >
         <Tabs>
           <Tab title='films'>
-            <Paragraph>films
-              {/* this.props.repositories.resourceData.films.length()*/ }
-            </Paragraph>
+            { this.getTabs(this.props.repositories.resourceData.films) }
           </Tab>
           <Tab title='species'>
             <Paragraph>species
@@ -109,7 +122,16 @@ class Personage extends React.PureComponent {
           </Tab>
         </Tabs>
       </Columns>
-    </Section>;
+    </Section> :
+      <Section>
+      <Box align='center'
+           pad='small'
+           margin='none'>
+        <Image src={ this.getImage('') }
+               size='large'
+               full='vertical' />
+      </Box>
+      </Section>;
   }
 }
 

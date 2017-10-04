@@ -1,5 +1,5 @@
 export const LOADEDPAGE = 'LOADEDPAGE';
-export const LOADEDONE = 'LOADEDONE';
+export const LOADING = 'LOADING';
 export const SHOW_LOADER = 'SHOW_LOADER';
 export const HIDE_LOADER = 'HIDE_LOADER';
 
@@ -7,6 +7,7 @@ export const UPDATE_SEARCH_QUERY = 'UPDATE_SEARCH_QUERY';
 export const UPDATE_SEARCH_TYPE = 'UPDATE_SEARCH_TYPE';
 export const UPDATE_SEARCH_PARAMETERS = 'UPDATE_SEARCH_PARAMETERS';
 
+export const HOME = 'HOME';
 export const PEOPLE = 'PEOPLE';
 export const PERSONAGE = 'PERSONAGE';
 export const PLANETS = 'PLANETS';
