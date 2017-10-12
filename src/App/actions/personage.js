@@ -2,14 +2,14 @@ import { LOADEDPAGE, PERSONAGE, UPDATE_SEARCH_PARAMETERS } from './../constants'
 import { hideLoader, showLoader } from "./loader";
 import {LOADING} from "../constants/index";
 
-export function updateSearchParameters({ parameters }) {
+export const updateSearchParameters = ({ parameters }) => {
   return {
     repositories: {
       parameters,
     },
     type: UPDATE_SEARCH_PARAMETERS,
   };
-}
+};
 
 export const startLoading = () => {
   return {
@@ -20,7 +20,7 @@ export const startLoading = () => {
   }
 };
 
-function updateStore(dispatch, parameters, resourceData){
+const updateStore = (dispatch, parameters, resourceData) => {
   dispatch(hideLoader());
   return dispatch({
     type: LOADEDPAGE,
@@ -30,11 +30,32 @@ function updateStore(dispatch, parameters, resourceData){
       resourceData
     }
   });
-}
+};
 
-function checkUpdate( countLoad ){
-  return countLoad === 3;
-}
+const checkUpdate = ( countLoad ) => {
+  return countLoad === 6;
+};
+
+// const loadSwapiData = ( nameArr, resourceData )  => {
+//   const resourceFilms = [];
+//   let countFilms = 0;
+//   resourceData[nameArr].forEach( elm => {
+//     countFilms = countFilms + 1;
+//     fetch( elm )
+//       .then( res => res.json() )
+//       .then( json => {
+//         return resourceFilms.push({
+//           name: json.title || json.name,
+//           num: json.episode_id || null,
+//           id: json.url.match(/\d+/g)[0]
+//         });
+//       }).catch(function(error){
+//         console.log('action-personage-films', error);
+//         return resourceFilms;
+//     });
+//   });
+// };
+
 
 export const personage = () => {
   return (dispatch, getState) => {
@@ -60,11 +81,13 @@ export const personage = () => {
 
             countLoad = countLoad + 1;
             if( checkUpdate(countLoad)){
+              console.log('personage return homeworld load', resourceData);
               return updateStore(dispatch, parameters, resourceData);
             }
           }).catch(function(error){
                     countLoad = countLoad + 1;
                     if( checkUpdate(countLoad)){
+                      console.log('personage return homeworld error');
                       return updateStore(dispatch, parameters, resourceData);
                     }
                     console.log('action-personage-homeworld', error);
@@ -80,39 +103,153 @@ export const personage = () => {
             fetch( elm )
               .then( res => res.json() )
               .then( json => {
-                resourceData.films.push({
+                return resourceData.films.push({
                   name: json.title,
                   num: json.episode_id,
                   id: json.url.match(/\d+/g)[0]
                 });
-                if( resourceFilms.length === countFilms ){
+              })
+              .then( () => {
                   countLoad = countLoad + 1;
                   if( checkUpdate(countLoad)){
+                    console.log('personage return films load', resourceData );
                     return updateStore(dispatch, parameters, resourceData);
                   }
                 }
-              }).catch(function(error){
+              ).catch(function(error){
                         if( resourceFilms.length === countFilms ){
                           countLoad = countLoad + 1;
                           if( checkUpdate(countLoad)){
+                            console.log('personage return films error');
                             return updateStore(dispatch, parameters, resourceData);
                           }
                         }
                         console.log('action-personage-films', error);
             });
           });
-
         } else {
           countLoad = countLoad + 1;
           if( checkUpdate(countLoad) ){
+            console.log('personage return personage load');
             return updateStore(dispatch, parameters, resourceData);
           }
         }
+
         // #4 species
-        // #5 vehicles
-        // #6 starships
+        if(resourceData.species.length){
+          // resourceData.species = loadSwapiData('species', resourceData);
+          const resourceSpecies = Array.concat([], resourceData.species);
+          resourceData.species = [];
+          let countSpecies = 0;
+          resourceSpecies.forEach( elm => {
+            countSpecies = countSpecies + 1;
+            fetch( elm )
+              .then( res => res.json() )
+              .then( json => {
+                return resourceData.species.push({
+                  name: json.name,
+                  id: json.url.match(/\d+/g)[0]
+                });
+              })
+              .then( () => {
+                  countLoad = countLoad + 1;
+                  if( checkUpdate(countLoad)){
+                    console.log('personage return species load', resourceData );
+                    return updateStore(dispatch, parameters, resourceData);
+                  }
+                }
+              ).catch(function(error){
+                        countLoad = countLoad + 1;
+                        if( checkUpdate(countLoad)){
+                          console.log('personage return species error', error);
+                          return updateStore(dispatch, parameters, resourceData);
+                        }
+            });
+          });
+        } else {
+          countLoad = countLoad + 1;
+          if( checkUpdate(countLoad) ){
+            console.log('personage return species mo-data');
+            return updateStore(dispatch, parameters, resourceData);
+          }
         }
-      ).catch(function(error){
+        // #5 vehicles
+        if(resourceData.vehicles.length){
+          const resourceVehicles = Array.concat([], resourceData.vehicles);
+          resourceData.vehicles = [];
+          let countVehicles = 0;
+          resourceVehicles.forEach( elm => {
+            countVehicles = countVehicles + 1;
+            fetch( elm )
+              .then( res => res.json() )
+              .then( json => {
+                return resourceData.vehicles.push({
+                  name: json.name,
+                  id: json.url.match(/\d+/g)[0]
+                });
+              })
+              .then( () => {
+                  countLoad = countLoad + 1;
+                  if( checkUpdate(countLoad)){
+                    console.log('personage return vehicles load', resourceData );
+                    return updateStore(dispatch, parameters, resourceData);
+                  }
+                }
+              ).catch(function(error){
+              countLoad = countLoad + 1;
+              if( checkUpdate(countLoad)){
+                console.log('personage return vehicles error', error);
+                return updateStore(dispatch, parameters, resourceData);
+              }
+            });
+          });
+        } else {
+          countLoad = countLoad + 1;
+          if( checkUpdate(countLoad) ){
+            console.log('personage return vehicles mo-data');
+            return updateStore(dispatch, parameters, resourceData);
+          }
+        }
+
+        // #6 starships
+        if(resourceData.starships.length){
+          const resourceStarships = Array.concat([], resourceData.starships);
+          resourceData.starships = [];
+          let countStarships = 0;
+          resourceStarships.forEach( elm => {
+            countStarships = countStarships + 1;
+            fetch( elm )
+              .then( res => res.json() )
+              .then( json => {
+                return resourceData.starships.push({
+                  name: json.name,
+                  id: json.url.match(/\d+/g)[0]
+                });
+              })
+              .then( () => {
+                  countLoad = countLoad + 1;
+                  if( checkUpdate(countLoad)){
+                    console.log('personage return starships load', resourceData );
+                    return updateStore(dispatch, parameters, resourceData);
+                  }
+                }
+              ).catch(function(error){
+              countLoad = countLoad + 1;
+              if( checkUpdate(countLoad)){
+                console.log('personage return starships error', error);
+                return updateStore(dispatch, parameters, resourceData);
+              }
+            });
+          });
+        } else {
+          countLoad = countLoad + 1;
+          if( checkUpdate(countLoad) ){
+            console.log('personage return starships mo-data');
+            return updateStore(dispatch, parameters, resourceData);
+          }
+        }
+      }).catch(function(error){
+        console.log('personage return personage error');
         console.log('action-personage-all', error)
       });
   }

@@ -49,4 +49,3 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PageRouter);
-// export default PageRouter;

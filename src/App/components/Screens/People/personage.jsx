@@ -14,11 +14,17 @@ import ListItem from 'grommet/components/ListItem'
 import Tabs from 'grommet/components/Tabs'
 import Tab from 'grommet/components/Tab'
 import Paragraph from 'grommet/components/Paragraph'
-import Label from 'grommet/components/Label'
 import Tiles from 'grommet/components/Tiles'
 import Tile from 'grommet/components/Tile'
+import { PERSONAGE } from "../../../constants";
 
 class Personage extends React.PureComponent {
+  constructor(...args){
+    super(...args);
+
+    // this.getTabsFilms = this.getTabsFilms.bind(this)
+  }
+
 
   componentDidMount() {
     this.props.actions.personage();
@@ -34,17 +40,26 @@ class Personage extends React.PureComponent {
     return img;
   }
 
-  getTabs( arr ) {
-    return arr.length ? <Tiles separator='none' align='start' basis='1/4'>
-      { arr.map( elm => {
-        return <Tile key={ elm.name }><Label size='small'>Part { elm.num }. <strong>{ elm.name }</strong></Label></Tile>
-      })} </Tiles> : <Paragraph><strong>Information not found</strong></Paragraph>;
+  static getTabs( arr ) {
+    return arr.length ? <Tiles separator='none' align='start' basis='1/3'>
+      { arr.map( elm => <Tile key={ elm.name }>
+        <Box size='small'><strong>{ elm.name }</strong></Box>
+      </Tile>
+      )} </Tiles> : <Paragraph><strong>Information not found</strong></Paragraph>;
+  }
+
+  static getTabsFilms( arr ) {
+    return arr.length ? <Tiles separator='none' align='start' basis='1/3'>
+      { arr.map( elm => <Tile key={ elm.name }>
+        <Box size='small'> Part { elm.num }. <strong>{ elm.name }</strong></Box>
+      </Tile>
+      )} </Tiles> : <Paragraph><strong>Information not found</strong></Paragraph>;
   }
 
   render(){
-    console.log( 'action-personage-films', this.props.repositories.resourceData );
+    console.log( 'Action-Personage-Films', this.props.repositories );
 
-    return this.props.repositories.resourceData.name ?
+    return this.props.repositories.category === PERSONAGE ?
       <Section>
       <Headline strong={true}
                 size='medium'
@@ -103,22 +118,16 @@ class Personage extends React.PureComponent {
       <Columns  size='large' justify='center' >
         <Tabs>
           <Tab title='films'>
-            { this.getTabs(this.props.repositories.resourceData.films) }
+            { Personage.getTabsFilms(this.props.repositories.resourceData.films) }
           </Tab>
           <Tab title='species'>
-            <Paragraph>species
-              { /*this.props.repositories.resourceData.species.length()*/ }
-            </Paragraph>
+            { Personage.getTabs(this.props.repositories.resourceData.species) }
           </Tab>
           <Tab title='vehicles'>
-            <Paragraph>vehicles
-              { /*this.props.repositories.resourceData.vehicles.length() */}
-            </Paragraph>
+            { Personage.getTabs(this.props.repositories.resourceData.vehicles) }
           </Tab>
           <Tab title='starships'>
-            <Paragraph>starships
-              { /*this.props.repositories.resourceData.starships.length()*/ }
-            </Paragraph>
+            { Personage.getTabs(this.props.repositories.resourceData.starships) }
           </Tab>
         </Tabs>
       </Columns>

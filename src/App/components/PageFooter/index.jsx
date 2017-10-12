@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { push } from 'react-router-redux';
 
 import { bindActionCreators } from 'redux';
 import { showLoader, hideLoader } from "./../../actions/loader";
@@ -18,8 +17,6 @@ import Box from 'grommet/components/Box';
 import Paragraph from 'grommet/components/Paragraph';
 import Menu from 'grommet/components/Menu';
 import Anchor from 'grommet/components/Anchor';
-
-// import { withRouter } from 'react-router';
 
 class PageFooter extends Component {
 
@@ -70,7 +67,7 @@ const mapStateToProps = ({repositories, loader}) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    actions: bindActionCreators({ showLoader, hideLoader, homepage, people, films, planets, species, vehicles, starships, push }, dispatch),
+    actions: bindActionCreators({ showLoader, hideLoader, homepage, people, films, planets, species, vehicles, starships }, dispatch),
   }
 };
 
