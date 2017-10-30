@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 import { people } from './../../../actions/people';
 import { showLoader, hideLoader } from "./../../../actions/loader";
 import { updateSearchParameters, startLoading } from './../../../actions/personage';
+import { personage } from './../../../actions/personage';
 
 import Value from 'grommet/components/Value';
 import Section from 'grommet/components/Section';
@@ -23,6 +24,10 @@ class People extends React.PureComponent {
     this.getValueAll = this.getValueAll.bind(this);
     this.getValueCount = this.getValueCount.bind(this);
     this.getPage = this.getPage.bind(this);
+  }
+
+  componentDidMount(){
+    this.props.actions.people();
   }
 
   getValueCount(){
@@ -50,6 +55,7 @@ class People extends React.PureComponent {
   doOnClick( id ) {
     this.props.actions.startLoading();
     this.props.actions.updateSearchParameters({ parameters: { resource:'people', id: id }});
+    this.props.actions.personage();
     this.props.actions.push(`/people/${id || ' '}`);
   }
 
@@ -95,7 +101,7 @@ const mapStateToProps = ({repositories, loading}) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    actions: bindActionCreators({ startLoading, showLoader, hideLoader, people, updateSearchParameters, push }, dispatch),
+    actions: bindActionCreators({ startLoading, showLoader, hideLoader, people, updateSearchParameters, push, personage }, dispatch),
   }
 };
 

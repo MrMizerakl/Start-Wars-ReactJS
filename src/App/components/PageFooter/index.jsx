@@ -24,15 +24,8 @@ class PageFooter extends Component {
     super(...args);
 
     this.copyrightYear = (new Date()).getUTCFullYear();
-
-    this.onClickHome = this.onClickHome.bind(this);
   }
 
-  onClickHome(event) {
-    event.preventDefault();
-    console.log('onClick function', this.props);
-    this.props.actions.push('/');
-  }
 
   render () {
     return (
@@ -46,7 +39,7 @@ class PageFooter extends Component {
           </Paragraph>
           <Menu direction='row' size='small' dropAlign={{"right": "right"}}>
             <Anchor key='homepage' path={{ path: '/', index: true }}  onClick={this.props.actions.homepage}>Home</Anchor>
-            <Anchor key='people' path={{ path: '/people', index: true }} onClick={this.props.actions.people}>People</Anchor>
+            <Anchor key='people' path={{ path: '/people', index: true }}>People</Anchor>
             <Anchor key='planets' path={{ path: '/planets', index: true }} onClick={this.props.actions.planets}>Planets</Anchor>
             <Anchor key='films' path={{ path: '/films', index: true }} onClick={this.props.actions.films}>Films</Anchor>
             <Anchor key='species' path={{ path: '/species', index: true }} onClick={this.props.actions.species}>Species</Anchor>

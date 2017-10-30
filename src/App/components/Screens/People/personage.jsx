@@ -19,15 +19,8 @@ import Tile from 'grommet/components/Tile'
 import { PERSONAGE } from "../../../constants";
 
 class Personage extends React.PureComponent {
-  constructor(...args){
-    super(...args);
-
-    // this.getTabsFilms = this.getTabsFilms.bind(this)
-  }
-
-
   componentDidMount() {
-    this.props.actions.personage();
+    // this.props.actions.personage();
   }
 
   getImage( arg ){
@@ -50,17 +43,15 @@ class Personage extends React.PureComponent {
 
   static getTabsFilms( arr ) {
     return arr.length ? <Tiles separator='none' align='start' basis='1/3'>
-      { arr.map( elm => <Tile key={ elm.name }>
-        <Box size='small'> Part { elm.num }. <strong>{ elm.name }</strong></Box>
+      { arr.sort( (item1, item2) => item1.episode - item2.episode ).map( elm => <Tile key={ elm.name }>
+        <Box size='small'> Part { elm.episode }. <strong>{ elm.name }</strong></Box>
       </Tile>
       )} </Tiles> : <Paragraph><strong>Information not found</strong></Paragraph>;
   }
 
   render(){
-    console.log( 'Action-Personage-Films', this.props.repositories );
-
     return this.props.repositories.category === PERSONAGE ?
-      <Section>
+     <Section>
       <Headline strong={true}
                 size='medium'
                 align='center'>
@@ -109,7 +100,7 @@ class Personage extends React.PureComponent {
               </ListItem>
               <ListItem justify='between' separator='horizontal'>
                 <span>homeworld</span>
-                <span className='secondary'>{this.props.repositories.resourceData.homeworld}</span>
+                <span className='secondary'>{ this.props.repositories.resourceData.infoData.filter( item => item.type === 'planets')[0].name }</span>
               </ListItem>
             </List>
           </Section>
@@ -118,20 +109,20 @@ class Personage extends React.PureComponent {
       <Columns  size='large' justify='center' >
         <Tabs>
           <Tab title='films'>
-            { Personage.getTabsFilms(this.props.repositories.resourceData.films) }
+            { Personage.getTabsFilms(this.props.repositories.resourceData.infoData.filter( item => item.type === 'films') ) }
           </Tab>
           <Tab title='species'>
-            { Personage.getTabs(this.props.repositories.resourceData.species) }
+            { Personage.getTabs(this.props.repositories.resourceData.infoData.filter( item => item.type === 'species')) }
           </Tab>
           <Tab title='vehicles'>
-            { Personage.getTabs(this.props.repositories.resourceData.vehicles) }
+            { Personage.getTabs(this.props.repositories.resourceData.infoData.filter( item => item.type === 'vehicles')) }
           </Tab>
           <Tab title='starships'>
-            { Personage.getTabs(this.props.repositories.resourceData.starships) }
+            { Personage.getTabs(this.props.repositories.resourceData.infoData.filter( item => item.type === 'starships')) }
           </Tab>
         </Tabs>
       </Columns>
-    </Section> :
+    </Section>  :
       <Section>
       <Box align='center'
            pad='small'
